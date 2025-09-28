@@ -1,0 +1,16 @@
+.calculatorBtn button {
+    background-color: #1099ad;
+    display: inline-block;
+    border-radius: 50%;
+    width:12rem;
+    height:12rem;
+    font-size: 8rem;
+    font-weight: 400;
+}
+
+.calculatorBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+}
