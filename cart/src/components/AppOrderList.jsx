@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
 import { OrderList } from "primereact/orderlist";
-import { ProductService } from "../services/ProductService";
-
-export default function AppOrderList({ products, setProducts }) {
+import { useState } from "react";
+import { useSelector } from "react-redux";
+export default function AppOrderList() {
   const itemTemplate = (item) => {
     return (
       <div className="flex flex-wrap p-2 align-items-center gap-3">
@@ -22,6 +21,9 @@ export default function AppOrderList({ products, setProducts }) {
       </div>
     );
   };
+
+  const cart = useSelector((state) => state.cart);
+  const [products, setProducts] = useState(cart.items);
 
   return (
     <div className="card xl:flex xl:justify-content-center">

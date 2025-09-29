@@ -7,11 +7,13 @@
     "dev": "vite"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.9.0",
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primereact": "^10.9.7",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-redux": "^9.2.0",
     "react-use": "^17.6.0"
   },
   "devDependencies": {

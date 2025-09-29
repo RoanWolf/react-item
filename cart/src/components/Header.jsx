@@ -4,12 +4,15 @@ import { Badge } from "primereact/badge";
 import { Button } from "primereact/button";
 
 import { useEffect, useState } from "react";
-import { useLocalStorage } from "react-use";
-export default function TemplateDemo({ setVisible,cartItemsArray }) {
+import { useSelector, useDispatch } from "react-redux";
+import { enableVisible } from "./visibleSlice";
+
+export default function Header() {
   const [currentTheme, setCurrentTheme] = useState("light");
   const [iconTheme, setIconTheme] = useState("pi pi-sun");
-  
+  const dispatch = useDispatch();
 
+  const cart = useSelector((state) => state.cart);
   useEffect(() => {
     let link = document.getElementById("theme-link");
     if (!link) {
@@ -42,10 +45,10 @@ export default function TemplateDemo({ setVisible,cartItemsArray }) {
     {
       label: "Cart",
       icon: "pi pi-shopping-cart",
-      badge: cartItemsArray.length,
+      badge: cart.items.length,
       template: itemRenderer,
       command: () => {
-        setVisible(true);
+        dispatch(enableVisible());
       },
     },
   ];

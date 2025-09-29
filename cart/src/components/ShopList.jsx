@@ -1,13 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "primereact/button";
 import { DataView } from "primereact/dataview";
 import { Rating } from "primereact/rating";
 import { Tag } from "primereact/tag";
 import { classNames } from "primereact/utils";
 import { ProductService } from "../services/ProductService.js";
+import { useDispatch } from "react-redux";
+import { addItem } from "./cartSlice.js";
 
-
-export default function ShopList({ setCartItemsArray, cartItemsArray }) {
+export default function ShopList() {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -29,6 +30,8 @@ export default function ShopList({ setCartItemsArray, cartItemsArray }) {
         return null;
     }
   };
+
+  const dispatch = useDispatch();
 
   const itemTemplate = (product, index) => {
     return (
@@ -65,7 +68,7 @@ export default function ShopList({ setCartItemsArray, cartItemsArray }) {
                 icon="pi pi-shopping-cart"
                 className="p-button-rounded"
                 disabled={product.inventoryStatus === "OUTOFSTOCK"}
-                onClick={() => setCartItemsArray([...cartItemsArray, product])}
+                onClick={() => dispatch(addItem(product))}
               ></Button>
             </div>
           </div>
