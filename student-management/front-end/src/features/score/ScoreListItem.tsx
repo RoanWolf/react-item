@@ -2,7 +2,7 @@ import { TableCell, TableRow } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 export default function scoreListItem() {
   return (
-    <TableRow key={new Date().toString()}>
+    <TableRow key={1}>
       <TableCell>Angel</TableCell>
       <TableCell>Class 1 | Year 8</TableCell>
       <TableCell>Math</TableCell>
